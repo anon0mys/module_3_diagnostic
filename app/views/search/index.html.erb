@@ -1,7 +1,11 @@
 <div class="stations">
   <% @stations.each do |station| %>
     <div class="station-info">
-
+      <%= station.name %>
+      <%= station.street_address %>
+      <%= station.fuel_types %>
+      <%= station.distance %>
+      <%= station.access_times %>
     </div>
   <% end %>
 </div>
