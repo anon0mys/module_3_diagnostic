@@ -14,13 +14,14 @@ describe Station do
             distance: 0.31422
         }
 
-      address = "#{attributes[:street_address]} #{attributes[:city]}, #{attributes[:state]} #{attributes[:zip]}"
-      fuel_types = 'Electric'
       station = Station.new(attributes)
 
       expect(station.name).to eq(attributes[:station_name])
-      expect(station.address).to eq(address)
-      expect(station.fuel_types).to eq(fuel_types)
+      expect(station.street_address).to eq(attributes[:street_address])
+      expect(station.city).to eq(attributes[:city])
+      expect(station.state).to eq(attributes[:state])
+      expect(station.zip).to eq(attributes[:zip])
+      expect(station.fuel_types).to eq(attributes[:fuel_type_code])
       expect(station.distance).to eq(attributes[:distance])
       expect(station.access_times).to eq(attributes[:access_days_time])
     end
