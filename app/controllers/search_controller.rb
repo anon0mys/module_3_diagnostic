@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
+    @stations = StationsPresenter.new(params[:q])
     conn = Faraday.new(url: 'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?location=80203&radius=6&fuel_type=ELEC,LPG&limit=10')
     response = conn.get do |req|
       req.headers['X-Api-Key'] = ENV['X-API-KEY']
