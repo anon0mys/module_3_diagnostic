@@ -18,4 +18,8 @@ class Station
     @distance = attrs[:distance]
     @access_times = attrs[:access_days_time]
   end
+
+  def full_address
+    "#{@street_address} #{@city} #{@state}, #{@zip}"
+  end
 end

@@ -26,4 +26,24 @@ describe Station do
       expect(station.access_times).to eq(attributes[:access_days_time])
     end
   end
+
+  describe 'instance methods' do
+    it 'should concatenate a #full_address' do
+      attributes = {
+            access_days_time: "24 hours daily",
+            station_name: "UDR",
+            street_address: "800 Acoma St",
+            city: "Denver",
+            state: "CO",
+            zip: "80204",
+            fuel_type_code: "ELEC",
+            distance: 0.31422
+        }
+
+      station = Station.new(attributes)
+      address = "#{attributes[:street_address]} #{attributes[:city]} #{attributes[:state]}, #{attributes[:zip]}"
+
+      expect(station.full_address).to eq(address)
+    end
+  end
 end
