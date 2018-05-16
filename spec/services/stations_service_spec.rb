@@ -7,8 +7,10 @@ describe StationsService do
     stub_request(:get, 'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json')
       .to_return(body: './spec/fixtures/json/stations_query.json')
 
-    expect(service.stations_query).to be_an Array
-    expect(service.stations_query.first).to be_a Hash
-    expect(service.stations_query.first[:name]).to eq('UDR')
+    stations = service.stations_query
+
+    expect(stations).to be_an Array
+    expect(stations.first).to be_a Hash
+    expect(stations.first[:station_name]).to eq('UDR')
   end
 end

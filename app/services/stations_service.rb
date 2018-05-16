@@ -4,7 +4,8 @@ class StationsService
   end
 
   def stations_query
-    JSON.parse(make_request, symbolize_names: true)
+    response = JSON.parse(make_request.body, symbolize_names: true)
+    response[:fuel_stations]
   end
 
   private
